@@ -1,9 +1,4 @@
-import re
-
 def tokenize(file_path):
-#     convert file path to all lowercase
-#     a token is a sequence of alphanumeric characters
-# can use regex /d
     """Write a method/function that reads in a text file and returns a list of the tokens
     in that file. For the purposes of this project, a token is a sequence of alphanumeric characters,
     independent of capitalization (so Apple, apple, aPpLe are the same token).
