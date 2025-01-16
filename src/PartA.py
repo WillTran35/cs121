@@ -1,3 +1,17 @@
+def tokenizeline(line):
+    result = []
+    string = ""
+    line = line.lower()
+    for i in line:
+        if i.isalnum():
+            string += i
+        else:
+            if string != "":
+                result.append(string)
+            string = ""
+    if string != "":
+        result.append(string)
+    return result
 def tokenize(file_path):
     """Write a method/function that reads in a text file and returns a list of the tokens
     in that file. For the purposes of this project, a token is a sequence of alphanumeric characters,
@@ -6,19 +20,9 @@ def tokenize(file_path):
     no need to write it from scratch), but you are not allowed to import a tokenizer (e.g. from NLTK),
     since you are being asked to write a tokenizer."""
     result = []
-    string = ""
-    file_path = file_path.lower()
-    for i in file_path:
-        if i.isalnum():
-            string += i
-        else:
-            # resultdict[string] = resultdict.setdefault(string, 0) + 1
-            if string != "":
-                result.append(string)
-            string = ""
-    if string != "":
-        # resultdict[string] = resultdict.setdefault(string, 0) + 1
-        result.append(string)
+    with open(file_path, "r") as line:
+        for i in line:
+            result += tokenizeline(i)
     return result
 
 def computeWordFrequencies(token):
@@ -36,7 +40,8 @@ def print_frequencies(mydict):
         print(f"{i} - {mydict[i]}")
 
 if __name__ == "__main__":
-    tokenlist = tokenize("Apple, apple, APPle")
+    # tokenize("/Users/willtran/PycharmProjects/cs121/src/testfile.txt")
+    tokenlist = tokenize("../src/testfile.txt")
     tokendict = computeWordFrequencies(tokenlist)
     print_frequencies(tokendict)
 
