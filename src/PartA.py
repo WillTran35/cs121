@@ -1,9 +1,11 @@
+import re
 def tokenizeline(line):
     result = []
     string = ""
     line = line.lower()
+    pattern = "[a-zA-Z0-9]"
     for i in line:
-        if i.isalnum():
+        if re.search(pattern, i):
             string += i
         else:
             if string != "":
