@@ -38,8 +38,12 @@ def computeWordFrequencies(token):
     return resultdict
 
 def print_frequencies(mydict):
-    for i in mydict:
-        print(f"{i} - {mydict[i]}")
+    """Finally, write a method/function that prints out the word frequency count onto the screen.
+     The printout should be ordered by decreasing frequency (so, the highest frequency words first;
+     if necessary, order the cases of ties alphabetically). """
+    sorteditems = sorted(mydict.items(), key = lambda kv: (kv[1], kv[0]))
+    for i in sorteditems:
+        print(f"{i[0]} - {i[1]}")
 
 if __name__ == "__main__":
     # tokenize("/Users/willtran/PycharmProjects/cs121/src/testfile.txt")

@@ -1,5 +1,2 @@
-Hello hello HELLO HeLLo
-hey guys
-he 89 guys
-
-Washington & hi all-the seâtences
+   Hello    world!  
+This	is a test file.   
