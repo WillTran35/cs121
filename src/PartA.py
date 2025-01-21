@@ -1,5 +1,5 @@
 import re
-def tokenizeline(line):
+def tokenizeline(line:str):
     result = []
     string = ""
     line = line.lower()
@@ -14,7 +14,7 @@ def tokenizeline(line):
     if string != "":
         result.append(string)
     return result
-def tokenize(file_path):
+def tokenize(file_path:str):
     """Write a method/function that reads in a text file and returns a list of the tokens
     in that file. For the purposes of this project, a token is a sequence of alphanumeric characters,
     independent of capitalization (so Apple, apple, aPpLe are the same token).
@@ -27,7 +27,7 @@ def tokenize(file_path):
             result += tokenizeline(i)
     return result
 
-def computeWordFrequencies(token):
+def computeWordFrequencies(token:str):
     """Write another method/function that counts the number of occurrences of each token in the token list.
     Remember that you should write this assignment yourself from scratch, so you are not allowed to import
     a counter when the assignment asks you to write that method."""
@@ -37,7 +37,7 @@ def computeWordFrequencies(token):
 
     return resultdict
 
-def print_frequencies(mydict):
+def print_frequencies(mydict:str):
     """Finally, write a method/function that prints out the word frequency count onto the screen.
      The printout should be ordered by decreasing frequency (so, the highest frequency words first;
      if necessary, order the cases of ties alphabetically). """
