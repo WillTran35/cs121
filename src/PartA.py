@@ -1,5 +1,7 @@
 import re
-def tokenizeline(line:str):
+import sys
+def tokenizeline(line:str) -> list:
+    """Helper function to tokenize an individual line."""
     result = []
     string = ""
     line = line.lower()
@@ -14,7 +16,7 @@ def tokenizeline(line:str):
     if string != "":
         result.append(string)
     return result
-def tokenize(file_path:str):
+def tokenize(file_path:str) -> list:
     """Write a method/function that reads in a text file and returns a list of the tokens
     in that file. For the purposes of this project, a token is a sequence of alphanumeric characters,
     independent of capitalization (so Apple, apple, aPpLe are the same token).
@@ -27,7 +29,7 @@ def tokenize(file_path:str):
             result += tokenizeline(i)
     return result
 
-def computeWordFrequencies(token:str):
+def computeWordFrequencies(token:list) -> dict:
     """Write another method/function that counts the number of occurrences of each token in the token list.
     Remember that you should write this assignment yourself from scratch, so you are not allowed to import
     a counter when the assignment asks you to write that method."""
@@ -37,7 +39,7 @@ def computeWordFrequencies(token:str):
 
     return resultdict
 
-def print_frequencies(mydict:str):
+def print_frequencies(mydict:str) -> None:
     """Finally, write a method/function that prints out the word frequency count onto the screen.
      The printout should be ordered by decreasing frequency (so, the highest frequency words first;
      if necessary, order the cases of ties alphabetically). """
@@ -46,10 +48,11 @@ def print_frequencies(mydict:str):
         print(f"{i[0]} - {i[1]}")
 
 if __name__ == "__main__":
-    # tokenize("/Users/willtran/PycharmProjects/cs121/src/testfile.txt")
-    tokenlist = tokenize("../src/testfile.txt")
+    file = sys.argv[1]
+    tokenlist = tokenize(file)
     tokendict = computeWordFrequencies(tokenlist)
     print_frequencies(tokendict)
+
 
 
 
