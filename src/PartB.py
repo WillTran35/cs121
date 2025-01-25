@@ -5,6 +5,8 @@ import sys
 and outputs the number of tokens they have in common. Here is an example of input/output:"""
 
 def findCommonTokens() -> int:
+    # This function runs in O(n) time because it requires the usage of tokenize() and computeWordFrequencies()
+    # which are O(n) functions.
     token1 = A.tokenize(sys.argv[1])
     token2 = A.tokenize(sys.argv[2])
 
